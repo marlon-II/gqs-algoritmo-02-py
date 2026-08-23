@@ -1,4 +1,5 @@
 valorIn = 0.0
+valorIn2 = 0.0
 resultado = 0.0
 operador = ""
 
@@ -9,21 +10,34 @@ print("  Digite == para finalizar a conta")
 print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-")
 
 while(operador != "=="):
-    valorIn = input("")
-    operador = input("")
+    valorIn = int(input("Digite o primeiro valor: "))
+    operador = input("Digite o operador da conta: ")
+    valorIn2 = int(input("Digite o segundo valor: "))
+
+    if operador == "==":
+        break
 
     match operador:
         case "+":
-            resultado = resultado + valorIn
+            resultado = valorIn + valorIn2
         case "-":
-            resultado = resultado - valorIn
+            resultado = valorIn - valorIn2
         case "*":
-            resultado = resultado * valorIn
+            resultado = valorIn * valorIn2
         case "/":
-            resultado = resultado / valorIn
-        case "=":
-            print("----------")
-            print(resultado)
+            if valorIn == 0 or valorIn2 == 0:
+                print("Erro: divisão por zero")
+                continue
+            resultado = valorIn / valorIn2
         case _:
-            print("Opçõa enválida, tente novamente a parti do ultimo número")
+            print("Opção inválida, tente novamente a partir do último número")
+            continue
+
+    
+    print("----------")
+    print(resultado)
+    print("----------")
+    print("  " )
+    print("Se dejesa parar digite '==', para continuar digite qualquer coisa.")
+    operador = input(" ")
 
